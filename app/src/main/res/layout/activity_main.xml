@@ -5,31 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:padding="@dimen/padding">
-
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="@dimen/header_size"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:padding="@dimen/padding"
+    android:background="@color/background">
 
     <Button
         android:id="@+id/login"
         android:layout_width="121dp"
         android:layout_height="47dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="84dp"
         android:onClick="login_activity"
         android:text="@string/login"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/signup"
@@ -45,5 +35,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="311dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="-18dp"
+        tools:layout_editor_absoluteY="-12dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

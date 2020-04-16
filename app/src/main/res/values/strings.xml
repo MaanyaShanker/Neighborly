@@ -6,4 +6,9 @@
     <string name="email">Email</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_materials">Materials</string>
+    <string name="title_time">Time</string>
+    <string name="title_money">Money</string>
 </resources>
