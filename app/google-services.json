@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "813105987626",
+    "firebase_url": "https://neighborly-a6b9c.firebaseio.com",
+    "project_id": "neighborly-a6b9c",
+    "storage_bucket": "neighborly-a6b9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813105987626:android:f460c7d679230dfeb70353",
+        "android_client_info": {
+          "package_name": "technogirl.maanyavictoria.neighborly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813105987626-ln33e0iab689vmibh4da3pd981fo8fut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "technogirl.maanyavictoria.neighborly",
+            "certificate_hash": "af105d56ea0e107e3e281ceeefa144b87974b143"
+          }
+        },
+        {
+          "client_id": "813105987626-ilpsp9ioii144vv1c1klkjsfkbu6850j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3ay7hfAAh4Ot7tUbVtqxT335Bp3n4qgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813105987626-ilpsp9ioii144vv1c1klkjsfkbu6850j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
