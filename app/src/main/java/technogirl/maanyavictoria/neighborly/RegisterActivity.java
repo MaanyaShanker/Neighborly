@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("Users");
 
-                    myRef.setValue("username");
+                    myRef.setValue("test");
 
                     Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
