@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button btn_register;
     FirebaseAuth auth;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseDatabase database;
     DatabaseReference myRef;
 
     @Override
@@ -34,8 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        final EditText temp_first = findViewById(R.id.first_name);
-        final EditText temp_last = findViewById(R.id.last_name);
+        final EditText temp_name = findViewById(R.id.full_name);
+        final EditText phone_number = findViewById(R.id.phone);
         btn_register = findViewById(R.id.register);
 
         auth = FirebaseAuth.getInstance();
@@ -45,23 +45,22 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String txt_username = username.getText().toString();
                 String txt_password = password.getText().toString();
-                String fname =  temp_first.getText().toString();
-                String lname = temp_last.getText().toString();
+                String name =  temp_name.getText().toString();
+                String phone = phone_number.getText().toString();
 
-                if(TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_password) ||  TextUtils.isEmpty(fname) ||  TextUtils.isEmpty(lname)){
+                if(TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_password) ||  TextUtils.isEmpty(name) ||  TextUtils.isEmpty(phone)){
                     //checks if all fields are filled in
                     Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 }
                 else if(txt_password.length() < 6) //checks to see if the password is at least 6 characters for security's sake
                     Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
                 else { //creates the user
-                    String name = fname + " " +lname;
-                    register(txt_username, txt_password, name);
+                    register(txt_username, txt_password, name, phone);
                 }
             }
         });
     }
-    private void register(final String username, final String password, final String name){
+    protected void register(final String username, final String password, final String name, final String phone_number){
         //creates the user in google firebase
         auth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -75,6 +74,12 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseUser user = auth.getCurrentUser();
                     UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                     user.updateProfile(userProfileChangeRequest);
+                    // Write a message to the database
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("Users");
+
+                    myRef.setValue("username");
+
                     Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
@@ -82,4 +87,15 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         }); }
+
+//        switch(view.getId()) {
+//        case R.id.radio_pirates:
+//            if (checked)
+//                // Pirates are the best
+//                break;
+//        case R.id.radio_ninjas:
+//            if (checked)
+//                // Ninjas rule
+//                break;
+//    }
 }

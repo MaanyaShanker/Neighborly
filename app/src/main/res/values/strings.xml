@@ -4,11 +4,13 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-    <string name="last_name">Last Name</string>
-    <string name="first_name">First Name</string>
+    <string name="name">Full Name</string>
+    <string name="phone">Phone Number</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_materials">Materials</string>
     <string name="title_time">Time</string>
     <string name="title_money">Money</string>
+    <string name="join">Join a community</string>
+    <string name="create">Create a community</string>
 </resources>
