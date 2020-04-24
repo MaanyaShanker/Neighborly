@@ -1,6 +1,7 @@
 package technogirl.maanyavictoria.neighborly.Time;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import technogirl.maanyavictoria.neighborly.Materials.MaterialsPopUp;
 import technogirl.maanyavictoria.neighborly.Materials.MaterialsRecyclerAdapter;
 import technogirl.maanyavictoria.neighborly.R;
 
@@ -33,14 +35,20 @@ public class TimeRecyclerAdapter extends RecyclerView.Adapter<TimeRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final TimeRecyclerAdapter.ViewHolder holder, int position) {
-        holder.description.setText(timeItemList.get(position).getDescription());
+    public void onBindViewHolder(@NonNull final TimeRecyclerAdapter.ViewHolder holder, final int position) {
+        holder.description.setText(timeItemList.get(position).getShort_description());
         holder.date.setText(timeItemList.get(position).getDate());
         holder.header.setText(timeItemList.get(position).getHeader());
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.header.setText("Clicked!");
+                String[] timeItemDesc = {timeItemList.get(position).getHeader(),
+                        timeItemList.get(position).getDate(),
+                        timeItemList.get(position).getShort_description(),
+                        timeItemList.get(position).getLong_description()};
+                Intent intent = new Intent(mContext, TimePopUp.class);
+                intent.putExtra("TimeItem", timeItemDesc);
+                mContext.startActivity(intent);
             }
         });
     }

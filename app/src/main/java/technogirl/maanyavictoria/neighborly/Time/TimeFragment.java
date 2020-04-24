@@ -38,9 +38,9 @@ public class TimeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_time, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         timeItemList = new ArrayList<>();
-        timeItemList.add(new TimeItem("Volunteer", "4/20/2020", "I need a few things picked up"));
-        timeItemList.add(new TimeItem("Volunteer", "4/20/2020", "I need a few things picked up"));
-        timeItemList.add(new TimeItem("Volunteer", "4/20/2020", "I need a few things picked up"));
+        timeItemList.add(new TimeItem("Installation", "4/20/2020", "I need a TV set built", "I recently bought a TV that I haven't installed, but now I am injured, and I would appreciate the help."));
+        timeItemList.add(new TimeItem("Babysitting", "4/20/2020", "I need someone to watch my kids for a night", "I have 2 kids: a 5 year old and a 2 year old. My husband and I wanted to go out for a break, and we would appreciate it if someone watched our kids. We're willing to pay!"));
+        timeItemList.add(new TimeItem("Plumbing", "4/20/2020", "I need some plumbing work done", "My toilet stopped working for some reason, and I would love if someone could help out!"));
         TimeRecyclerAdapter mAdapter = new TimeRecyclerAdapter(timeItemList, container.getContext());
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
