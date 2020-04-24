@@ -1,6 +1,7 @@
 package technogirl.maanyavictoria.neighborly.Materials;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import technogirl.maanyavictoria.neighborly.R;
 
 public class MaterialsRecyclerAdapter extends RecyclerView.Adapter<MaterialsRecyclerAdapter.ViewHolder> {
     List<MaterialsItem> materialsItemList;
-    Context mContext;
+    private final Context mContext;
 
     public MaterialsRecyclerAdapter(List<MaterialsItem> materialsItemList, Context context) {
         Log.i("Adapter", "Created");
         this.materialsItemList = materialsItemList;
-        this.mContext = context;
+        mContext = context;
         Log.i("Adapter", "" + getItemCount());
     }
 
@@ -36,16 +37,22 @@ public class MaterialsRecyclerAdapter extends RecyclerView.Adapter<MaterialsRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Log.i("Adapter", "OnBindViewHolder Created");
 
-        holder.description.setText(materialsItemList.get(position).getDescription());
+        holder.description.setText(materialsItemList.get(position).getShort_description());
         holder.date.setText(materialsItemList.get(position).getDate());
         holder.header.setText(materialsItemList.get(position).getHeader());
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.header.setText("Clicked!");
+                String[] materialItemDesc = {materialsItemList.get(position).getHeader(),
+                        materialsItemList.get(position).getDate(),
+                        materialsItemList.get(position).getShort_description(),
+                        materialsItemList.get(position).getLong_description()};
+                Intent intent = new Intent(mContext, MaterialsPopUp.class);
+                intent.putExtra("MaterialItem", materialItemDesc);
+                mContext.startActivity(intent);
             }
         });
     }

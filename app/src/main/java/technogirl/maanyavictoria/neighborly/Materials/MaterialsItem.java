@@ -1,15 +1,16 @@
 package technogirl.maanyavictoria.neighborly.Materials;
 
-import java.util.ArrayList;
 
 public class MaterialsItem {
-    private String header, date, description;
+    private String header, date, short_description, long_description;
     public MaterialsItem() {
     }
-    public MaterialsItem(String header, String date, String description) {
+
+    public MaterialsItem(String header, String date, String short_description, String long_description) {
         this.header = header;
         this.date = date;
-        this.description = description;
+        this.short_description = short_description;
+        this.long_description = long_description;
     }
 
     public String getHeader() {
@@ -28,12 +29,19 @@ public class MaterialsItem {
         this.date = date;
     }
 
-    public String getDescription() {
-        return description;
+    public String getShort_description() {
+        return short_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setShort_description(String short_description) {
+        this.short_description = short_description;
     }
 
+    public String getLong_description() {
+        return long_description;
+    }
+
+    public void setLong_description(String long_description) {
+        this.long_description = long_description;
+    }
 }

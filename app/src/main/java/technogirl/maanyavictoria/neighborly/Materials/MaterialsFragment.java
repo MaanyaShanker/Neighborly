@@ -37,9 +37,9 @@ public class MaterialsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_materials, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         materialsItemsList = new ArrayList<>();
-        materialsItemsList.add(new MaterialsItem("Groceries", "4/20/2020", "I need a few things picked up"));
-        materialsItemsList.add(new MaterialsItem("Groceries", "4/20/2020", "I need a few things picked up"));
-        materialsItemsList.add(new MaterialsItem("Groceries", "4/20/2020", "I need a few things picked up"));
+        materialsItemsList.add(new MaterialsItem("Groceries", "4/20/2020", "I need a few things picked up", "I need eggs, milk, potatoes, and some medicine."));
+        materialsItemsList.add(new MaterialsItem("Medicine", "4/23/2020", "I need medicine", "I need my sugar medicine."));
+        materialsItemsList.add(new MaterialsItem("Clothes", "4/27/2020", "I need clothes", "I need some sweaters and some socks"));
         MaterialsRecyclerAdapter mAdapter = new MaterialsRecyclerAdapter(materialsItemsList, container.getContext());
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
