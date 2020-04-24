@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                     user.updateProfile(userProfileChangeRequest);
                     // Write a message to the database
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("Users");
+                    DatabaseReference myRef = database.getReference();
 
                     myRef.setValue("test");
 
