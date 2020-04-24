@@ -1,4 +1,4 @@
-package technogirl.maanyavictoria.neighborly;
+package technogirl.maanyavictoria.neighborly.Materials;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,6 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import technogirl.maanyavictoria.neighborly.R;
 
 public class MaterialsRecyclerAdapter extends RecyclerView.Adapter<MaterialsRecyclerAdapter.ViewHolder> {
     List<MaterialsItem> materialsItemList;

@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import technogirl.maanyavictoria.neighborly.Materials.MaterialsFragment;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "Neighborly";

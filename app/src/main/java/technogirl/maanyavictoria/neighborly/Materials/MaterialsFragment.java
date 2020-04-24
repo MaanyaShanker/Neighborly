@@ -1,7 +1,5 @@
-package technogirl.maanyavictoria.neighborly;
+package technogirl.maanyavictoria.neighborly.Materials;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +14,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import technogirl.maanyavictoria.neighborly.R;
 
 public class MaterialsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

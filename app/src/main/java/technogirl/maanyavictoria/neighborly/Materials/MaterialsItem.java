@@ -1,4 +1,4 @@
-package technogirl.maanyavictoria.neighborly;
+package technogirl.maanyavictoria.neighborly.Materials;
 
 import java.util.ArrayList;
 
