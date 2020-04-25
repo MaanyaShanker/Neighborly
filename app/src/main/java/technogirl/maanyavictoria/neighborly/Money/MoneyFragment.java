@@ -1,4 +1,5 @@
-package technogirl.maanyavictoria.neighborly.Materials;
+package technogirl.maanyavictoria.neighborly.Money;
+
 
 import android.os.Bundle;
 
@@ -8,7 +9,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +18,14 @@ import java.util.List;
 
 import technogirl.maanyavictoria.neighborly.R;
 
-public class MaterialsFragment extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private List<MaterialsItem> materialsItemsList;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MoneyFragment extends Fragment {
+    private List<MoneyItem> moneyItemList;
     private RecyclerView recyclerView;
-
-
-    public MaterialsFragment() {
+    public MoneyFragment() {
         // Required empty public constructor
-        Log.i("MaterialsFragment", "Initialized");
     }
 
 
@@ -34,18 +33,19 @@ public class MaterialsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Log.i("MaterialsFragment", "OnCreateViewMade");
-        View view = inflater.inflate(R.layout.fragment_materials, container, false);
+        View view = inflater.inflate(R.layout.fragment_money, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        materialsItemsList = new ArrayList<>();
-        materialsItemsList.add(new MaterialsItem("Groceries", "4/20/2020", "I need a few things picked up", "I need eggs, milk, potatoes, and some medicine."));
-        materialsItemsList.add(new MaterialsItem("Medicine", "4/23/2020", "I need medicine", "I need my sugar medicine."));
-        materialsItemsList.add(new MaterialsItem("Clothes", "4/27/2020", "I need clothes", "I need some sweaters and some socks"));
-        MaterialsRecyclerAdapter mAdapter = new MaterialsRecyclerAdapter(materialsItemsList, container.getContext());
+        moneyItemList = new ArrayList<>();
+        moneyItemList.add(new MoneyItem("Dance", "4/25/2020", "I need some money to pay for dance", "I fell a few dollars short, what should i do?", 10, 100));
+        moneyItemList.add(new MoneyItem("Dance", "4/25/2020", "I need some money to pay for dance", "I fell a few dollars short, what should i do?", 50, 100));
+        moneyItemList.add(new MoneyItem("Dance", "4/25/2020", "I need some money to pay for dance", "I fell a few dollars short, what should i do?", 90, 100));
+        MoneyRecyclerAdapter mAdapter = new MoneyRecyclerAdapter(moneyItemList, container.getContext());
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         mAdapter.notifyDataSetChanged();
         return view;
     }
+
 }
