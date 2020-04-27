@@ -44,4 +44,14 @@ public class MaterialsItem {
     public void setLong_description(String long_description) {
         this.long_description = long_description;
     }
+
+    public boolean isMaterial(){
+        return true;
+    }
+    public boolean isTime(){
+        return false;
+    }
+    public boolean isMoney(){
+        return false;
+    }
 }

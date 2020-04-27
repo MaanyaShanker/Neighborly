@@ -60,4 +60,13 @@ public class MoneyItem {
     public void setMax(int max) {
         this.max = max;
     }
+    public boolean isMaterial(){
+        return false;
+    }
+    public boolean isTime(){
+        return false;
+    }
+    public boolean isMoney(){
+        return true;
+    }
 }

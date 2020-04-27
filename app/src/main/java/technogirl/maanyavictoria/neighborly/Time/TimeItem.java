@@ -45,4 +45,13 @@ public class TimeItem {
     public void setLong_description(String long_description) {
         this.long_description = long_description;
     }
+    public boolean isMaterial(){
+        return false;
+    }
+    public boolean isTime(){
+        return true;
+    }
+    public boolean isMoney(){
+        return false;
+    }
 }

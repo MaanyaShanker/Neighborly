@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import technogirl.maanyavictoria.neighborly.Home.HomeFragment;
 import technogirl.maanyavictoria.neighborly.Materials.MaterialsFragment;
 import technogirl.maanyavictoria.neighborly.Money.MoneyFragment;
 import technogirl.maanyavictoria.neighborly.Time.TimeFragment;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "Neighborly";
-    private TextView mTextMessage;
-    Fragment materials_fragment, time_fragment, money_fragment;
-//    final FragmentManager fm = getSupportFragmentManager();
+    Fragment materials_fragment, time_fragment, money_fragment, home_fragment;
     FragmentManager fm;
     Fragment active;
     @Override
@@ -29,16 +29,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        home_fragment = new HomeFragment();
         materials_fragment = new MaterialsFragment();
         time_fragment = new TimeFragment();
         money_fragment = new MoneyFragment();
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm = getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.main_container, home_fragment, "0").commit();
         fm.beginTransaction().add(R.id.main_container, materials_fragment, "1").hide(materials_fragment).commit();
         fm.beginTransaction().add(R.id.main_container, time_fragment, "2").hide(time_fragment).commit();
         fm.beginTransaction().add(R.id.main_container, money_fragment, "3").hide(money_fragment).commit();
-        active = materials_fragment;
+
+        active = home_fragment;
     }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,24 +49,22 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    mTextMessage.setVisibility(View.VISIBLE);
+                    Log.i(TAG, "HomeTab");
                     fm.beginTransaction().hide(active).commit();
+                    fm.beginTransaction().show(home_fragment).commit();
+                    active = home_fragment;
                     return true;
                 case R.id.navigation_materials:
-                    mTextMessage.setVisibility(View.GONE);
                     fm.beginTransaction().hide(active).commit();
                     fm.beginTransaction().show(materials_fragment).commit();
                     active = materials_fragment;
                     return true;
                 case R.id.navigation_time:
-                    mTextMessage.setVisibility(View.GONE);
                     fm.beginTransaction().hide(active).commit();
                     fm.beginTransaction().show(time_fragment).commit();
                     active = time_fragment;
                     return true;
                 case R.id.navigation_money:
-                    mTextMessage.setVisibility(View.GONE);
                     fm.beginTransaction().hide(active).commit();
                     fm.beginTransaction().show(money_fragment).commit();
                     active = money_fragment;
