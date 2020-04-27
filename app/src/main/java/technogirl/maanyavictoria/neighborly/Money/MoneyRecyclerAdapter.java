@@ -1,5 +1,6 @@
 package technogirl.maanyavictoria.neighborly.Money;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -21,6 +22,9 @@ import technogirl.maanyavictoria.neighborly.R;
 public class MoneyRecyclerAdapter extends RecyclerView.Adapter<MoneyRecyclerAdapter.ViewHolder> {
     List<MoneyItem> moneyItemList;
     Context mContext;
+    TextView header, date, description;
+    ProgressBar popup_pb;
+    Dialog myDialog;
 
     public MoneyRecyclerAdapter(List<MoneyItem> moneyItemList, Context mContext) {
         this.moneyItemList = moneyItemList;
@@ -41,18 +45,24 @@ public class MoneyRecyclerAdapter extends RecyclerView.Adapter<MoneyRecyclerAdap
         holder.description.setText(moneyItemList.get(position).getShort_description());
         holder.date.setText(moneyItemList.get(position).getDate());
         holder.header.setText(moneyItemList.get(position).getHeader());
+
+        myDialog = new Dialog(mContext);
+        myDialog.setContentView(R.layout.activity_money_pop_up);
+        header = myDialog.findViewById(R.id.popupmoneyheader);
+        date = myDialog.findViewById(R.id.popupmoneydate);
+        description = myDialog.findViewById(R.id.popupmoneydesc);
+        popup_pb = myDialog.findViewById(R.id.popupmoneyprogress);
+
+
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] materialItemDesc = {moneyItemList.get(position).getHeader(),
-                        moneyItemList.get(position).getDate(),
-                        moneyItemList.get(position).getShort_description(),
-                        moneyItemList.get(position).getLong_description(),
-                        ""+moneyItemList.get(position).getProgress(),
-                        ""+moneyItemList.get(position).getMax()};
-                Intent intent = new Intent(mContext, MoneyPopUp.class);
-                intent.putExtra("MoneyItem", materialItemDesc);
-                mContext.startActivity(intent);
+                header.setText(moneyItemList.get(position).getHeader());
+                date.setText(moneyItemList.get(position).getDate());
+                description.setText(moneyItemList.get(position).getShort_description());
+                popup_pb.setMax(moneyItemList.get(position).getMax());
+                popup_pb.setProgress(moneyItemList.get(position).getProgress());
+                myDialog.show();
             }
         });
     }

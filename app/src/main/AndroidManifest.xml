@@ -12,14 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Money.MoneyPopUp"
-            android:theme="@style/AppTheme.PopUpTheme"></activity>
-        <activity
-            android:name=".Time.TimePopUp"
-            android:theme="@style/AppTheme.PopUpTheme" />
-        <activity
-            android:name=".Materials.MaterialsPopUp"
-            android:theme="@style/AppTheme.PopUpTheme" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" />

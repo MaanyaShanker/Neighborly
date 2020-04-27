@@ -1,5 +1,6 @@
 package technogirl.maanyavictoria.neighborly.Time;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -14,13 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import technogirl.maanyavictoria.neighborly.Materials.MaterialsPopUp;
-import technogirl.maanyavictoria.neighborly.Materials.MaterialsRecyclerAdapter;
 import technogirl.maanyavictoria.neighborly.R;
 
 public class TimeRecyclerAdapter extends RecyclerView.Adapter<TimeRecyclerAdapter.ViewHolder>{
     List<TimeItem> timeItemList;
     Context mContext;
+    TextView header, date, description;
+    Dialog myDialog;
 
     public TimeRecyclerAdapter(List<TimeItem> timeItemList, Context mContext) {
         this.timeItemList = timeItemList;
@@ -39,16 +40,20 @@ public class TimeRecyclerAdapter extends RecyclerView.Adapter<TimeRecyclerAdapte
         holder.description.setText(timeItemList.get(position).getShort_description());
         holder.date.setText(timeItemList.get(position).getDate());
         holder.header.setText(timeItemList.get(position).getHeader());
+
+        myDialog = new Dialog(mContext);
+        myDialog.setContentView(R.layout.activity_time_pop_up);
+        header = myDialog.findViewById(R.id.popuptimeheader);
+        date = myDialog.findViewById(R.id.popuptimedate);
+        description = myDialog.findViewById(R.id.popuptimedesc);
+
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] timeItemDesc = {timeItemList.get(position).getHeader(),
-                        timeItemList.get(position).getDate(),
-                        timeItemList.get(position).getShort_description(),
-                        timeItemList.get(position).getLong_description()};
-                Intent intent = new Intent(mContext, TimePopUp.class);
-                intent.putExtra("TimeItem", timeItemDesc);
-                mContext.startActivity(intent);
+                header.setText(timeItemList.get(position).getHeader());
+                date.setText(timeItemList.get(position).getDate());
+                description.setText(timeItemList.get(position).getLong_description());
+                myDialog.show();
             }
         });
     }
