@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding"
-    android:background="@color/background">
+    android:background="@color/dark_blue">
 
     <TextView
         android:id="@+id/popupmaterialsheader"
@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:text="Header"
         android:textSize="@dimen/header_size"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
@@ -22,6 +24,8 @@
         android:text="Date"
         android:textSize="25dp"
         android:paddingTop="25dp"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/popupmaterialsheader"/>
     <TextView
@@ -29,6 +33,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/popupmaterialsdate"
         android:paddingTop="@dimen/header_size"/>

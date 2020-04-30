@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:padding="@dimen/padding">
+    android:padding="@dimen/padding"
+    android:background="@color/pale_blue">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/header_size"
+        android:fontFamily="@font/lobster_regular"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:shadowColor="#000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"/>
 
-    <TextView
-        android:id="@+id/signup_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/signup"
-        android:textColor="@color/black"
-        android:textSize="35dp"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+    <!--<TextView-->
+        <!--android:id="@+id/signup_header"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:text="@string/signup"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="35dp"-->
+        <!--app:layout_constraintHorizontal_bias="0.551"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/header" />-->
 
     <EditText
         android:id="@+id/full_name"
@@ -38,11 +47,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/name"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColorHint="@color/dark_blue"
+        android:textColor="@color/dark_blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_header"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         app:layout_constraintVertical_bias="0.023" />
 
     <EditText
@@ -51,6 +62,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/phone"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColorHint="@color/dark_blue"
+        android:textColor="@color/dark_blue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/full_name" />
@@ -61,6 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/email"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColorHint="@color/dark_blue"
+        android:textColor="@color/dark_blue"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -73,42 +90,55 @@
         android:layout_marginTop="30dp"
         android:hint="@string/password"
         android:password="true"
+        android:fontFamily="@font/marcellus_bold"
+        android:textColorHint="@color/dark_blue"
+        android:textColor="@color/dark_blue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/username" />
 
-    <!--<RadioGroup-->
-        <!--android:id="@+id/community_choice"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="36dp"-->
-        <!--android:orientation="horizontal"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@id/password">-->
+    <RadioGroup
+        android:id="@+id/community_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal"
 
-        <!--<RadioButton-->
-            <!--android:id="@+id/join"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/join" />-->
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password">
 
-        <!--<RadioButton-->
-            <!--android:id="@+id/create"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:text="@string/create" />-->
-    <!--</RadioGroup>-->
+        <RadioButton
+            android:id="@+id/join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/join"
+            android:fontFamily="@font/marcellus_bold"
+            android:textColor="@color/dark_blue"/>
+
+        <RadioButton
+            android:id="@+id/create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/create"
+            android:fontFamily="@font/marcellus_bold"
+            android:textColor="@color/dark_blue"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/register"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/signup"
+        android:background="@color/dark_blue"
+        android:textColor="@color/white"
+        android:padding="20dp"
+        android:fontFamily="@font/marcellus_bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password" />
+        app:layout_constraintTop_toBottomOf="@id/community_choice" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

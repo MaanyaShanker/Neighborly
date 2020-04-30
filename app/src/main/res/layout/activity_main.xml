@@ -6,20 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:padding="@dimen/padding"
-    android:background="@color/background">
-
+    android:background="@color/pale_blue">
     <Button
         android:id="@+id/login"
-        android:layout_width="121dp"
-        android:layout_height="47dp"
+        android:layout_width="136dp"
+        android:layout_height="77dp"
         android:layout_marginTop="84dp"
+        android:background="@color/dark_blue"
+        android:fontFamily="@font/marcellus_bold"
         android:onClick="login_activity"
+        android:padding="20dp"
         android:text="@string/login"
-        android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signup"
@@ -27,21 +29,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/signup"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        android:padding="10dp"
+        android:textColor="@color/white"
+        android:background="@color/dark_blue"
+        android:fontFamily="@font/marcellus_bold"
+        android:textSize="25sp"
+        android:padding="20dp"
         android:onClick="register_acitivity"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="311dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="-18dp"
-        tools:layout_editor_absoluteY="-12dp" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="413dp"-->
+        <!--android:layout_height="311dp"-->
+        <!--app:srcCompat="@drawable/logo"-->
+        <!--tools:layout_editor_absoluteX="-18dp"-->
+        <!--tools:layout_editor_absoluteY="-12dp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

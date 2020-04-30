@@ -4,7 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/parentLayout">
+    android:id="@+id/parentLayout"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
 
         <TextView
@@ -13,6 +15,8 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="40dp"
+            android:fontFamily="@font/marcellus_bold"
+            android:textColor="@color/dark_blue"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +26,8 @@
             android:layout_height="wrap_content"
             android:text="4/27/20"
             android:textSize="20dp"
+            android:fontFamily="@font/marcellus_bold"
+            android:textColor="@color/dark_blue"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +38,8 @@
             android:paddingTop="20dp"
             android:text="Brief Description"
             android:textSize="15dp"
+            android:fontFamily="@font/marcellus_bold"
+            android:textColor="@color/dark_blue"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_name" />
 
