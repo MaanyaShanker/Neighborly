@@ -24,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button btn_register;
     FirebaseAuth auth;
+    String test_username;
     FirebaseDatabase database;
     DatabaseReference myRef;
 
@@ -44,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String txt_username = username.getText().toString();
+                test_username = txt_username;
                 String txt_password = password.getText().toString();
                 String name =  temp_name.getText().toString();
                 String phone = phone_number.getText().toString();
@@ -70,15 +72,18 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     //creates a new user and the name is stored in the user object
+                    String string_user = username.substring(0, username.indexOf("."));
+                    User temp_user = new User(name, username, phone_number);
+
                     Toast.makeText(RegisterActivity.this, "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
                     FirebaseUser user = auth.getCurrentUser();
                     UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                     user.updateProfile(userProfileChangeRequest);
+
                     // Write a message to the database
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference();
-
-                    myRef.setValue("test");
+                    DatabaseReference myRef = database.getReference("Users/").child(string_user);
+                    myRef.setValue(temp_user);
 
                     Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -88,14 +93,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }); }
 
-//        switch(view.getId()) {
-//        case R.id.radio_pirates:
-//            if (checked)
-//                // Pirates are the best
-//                break;
-//        case R.id.radio_ninjas:
-//            if (checked)
-//                // Ninjas rule
-//                break;
-//    }
 }
