@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Header"
-        android:textSize="@dimen/header_size"
+        android:textSize="40dp"
         android:fontFamily="@font/marcellus_bold"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
