@@ -22,7 +22,7 @@ import technogirl.maanyavictoria.neighborly.R;
 public class MoneyRecyclerAdapter extends RecyclerView.Adapter<MoneyRecyclerAdapter.ViewHolder> {
     List<MoneyItem> moneyItemList;
     Context mContext;
-    TextView header, date, description;
+    TextView header, date, raised, description;
     ProgressBar popup_pb;
     Dialog myDialog;
 
@@ -50,6 +50,7 @@ public class MoneyRecyclerAdapter extends RecyclerView.Adapter<MoneyRecyclerAdap
         myDialog.setContentView(R.layout.activity_money_pop_up);
         header = myDialog.findViewById(R.id.popupmoneyheader);
         date = myDialog.findViewById(R.id.popupmoneydate);
+        raised = myDialog.findViewById(R.id.popupmoneyraised);
         description = myDialog.findViewById(R.id.popupmoneydesc);
         popup_pb = myDialog.findViewById(R.id.popupmoneyprogress);
 
@@ -60,6 +61,7 @@ public class MoneyRecyclerAdapter extends RecyclerView.Adapter<MoneyRecyclerAdap
                 header.setText(moneyItemList.get(position).getHeader());
                 date.setText(moneyItemList.get(position).getDate());
                 description.setText(moneyItemList.get(position).getShort_description());
+                raised.setText("$" + moneyItemList.get(position).getProgress() + "/$" + moneyItemList.get(position).getMax());
                 popup_pb.setMax(moneyItemList.get(position).getMax());
                 popup_pb.setProgress(moneyItemList.get(position).getProgress());
                 myDialog.show();

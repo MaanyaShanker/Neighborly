@@ -1,5 +1,6 @@
 package technogirl.maanyavictoria.neighborly.Home;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,9 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     List<Object> homeItemList;
     Context mContext;
     private static final String TAG = "Adapter";
+    TextView header, date, raised, description;
+    ProgressBar popup_pb;
+    Dialog myDialog;
 
     public HomeRecyclerAdapter(List<Object> homeItemList, Context mContext) {
         this.homeItemList = homeItemList;
@@ -39,20 +43,52 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.i(TAG, "OnBindViewHolder");
-        Object temp = homeItemList.get(position);
+
+        myDialog = new Dialog(mContext);
+        myDialog.setContentView(R.layout.activity_home_pop_up);
+        header = myDialog.findViewById(R.id.popuphomeheader);
+        date = myDialog.findViewById(R.id.popuphomedate);
+        raised = myDialog.findViewById(R.id.popuphomeraised);
+        description = myDialog.findViewById(R.id.popuphomedesc);
+        popup_pb = myDialog.findViewById(R.id.popuphomeprogress);
+
+        final Object temp = homeItemList.get(position);
         if(temp instanceof MaterialsItem){
             holder.header.setText(((MaterialsItem) temp).getHeader());
             holder.date.setText(((MaterialsItem) temp).getDate());
             holder.description.setText(((MaterialsItem) temp).getShort_description());
             holder.pb.setVisibility(View.GONE);
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    header.setText(((MaterialsItem) temp).getHeader());
+                    date.setText(((MaterialsItem) temp).getDate());
+                    description.setText(((MaterialsItem) temp).getLong_description());
+                    popup_pb.setVisibility(View.GONE);
+                    raised.setVisibility(View.GONE);
+                    myDialog.show();
+                }
+            });
         }
         else if(temp instanceof TimeItem){
             holder.header.setText(((TimeItem) temp).getHeader());
             holder.date.setText(((TimeItem) temp).getDate());
             holder.description.setText(((TimeItem) temp).getShort_description());
             holder.pb.setVisibility(View.GONE);
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    header.setText(((TimeItem) temp).getHeader());
+                    date.setText(((TimeItem) temp).getDate());
+                    description.setText(((TimeItem) temp).getLong_description());
+                    popup_pb.setVisibility(View.GONE);
+                    raised.setVisibility(View.GONE);
+                    myDialog.show();
+                }
+            });
+
         }
         else{
             holder.header.setText(((MoneyItem) temp).getHeader());
@@ -60,6 +96,19 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
             holder.description.setText(((MoneyItem) temp).getShort_description());
             holder.pb.setMax(((MoneyItem) temp).getMax());
             holder.pb.setProgress(((MoneyItem) temp).getProgress());
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    header.setText(((MoneyItem) temp).getHeader());
+                    date.setText(((MoneyItem) temp).getDate());
+                    description.setText(((MoneyItem) temp).getLong_description());
+                    String r = "$" + ((MoneyItem) temp).getProgress() + "/$" + ((MoneyItem) temp).getMax();
+                    raised.setText(r);
+                    popup_pb.setMax(((MoneyItem) temp).getMax());
+                    popup_pb.setMax(((MoneyItem) temp).getProgress());
+                    myDialog.show();
+                }
+            });
         }
 
     }
