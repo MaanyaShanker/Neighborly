@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button btn_register;
+    RadioGroup community;
     FirebaseAuth auth;
     String test_username;
     FirebaseDatabase database;
@@ -38,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText temp_name = findViewById(R.id.full_name);
         final EditText phone_number = findViewById(R.id.phone);
         btn_register = findViewById(R.id.register);
+
+        community = findViewById(R.id.community_choice);
 
         auth = FirebaseAuth.getInstance();
 
@@ -72,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     //creates a new user and the name is stored in the user object
-                    String string_user = username.substring(0, username.indexOf("."));
+                    String string_user = username.replace(".", "");
                     User temp_user = new User(name, username, phone_number);
 
                     Toast.makeText(RegisterActivity.this, "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
@@ -81,16 +85,23 @@ public class RegisterActivity extends AppCompatActivity {
                     user.updateProfile(userProfileChangeRequest);
 
                     // Write a message to the database
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("Users/").child(string_user);
+                    database = FirebaseDatabase.getInstance();
+                    myRef = database.getReference("Users/").child(string_user);
                     myRef.setValue(temp_user);
 
-                    Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
+                    switch (community.getCheckedRadioButtonId()){
+                        case R.id.join:
+                            Intent join_intent = new Intent(RegisterActivity.this, JoinCommunityActivity.class);
+                            startActivity(join_intent);
+                            finish();
+                            break;
+                        case R.id.create:
+                            Intent create_intent = new Intent(RegisterActivity.this, CreateCommunityActivity.class);
+                            startActivity(create_intent);
+                            finish();
+                            break;
+                    }
                 }
             }
         }); }
-
 }

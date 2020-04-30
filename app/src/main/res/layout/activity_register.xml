@@ -126,6 +126,7 @@
             android:textColor="@color/dark_blue"/>
     </RadioGroup>
 
+
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"

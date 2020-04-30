@@ -1,8 +1,17 @@
 package technogirl.maanyavictoria.neighborly;
 
+import java.sql.Time;
+
+import technogirl.maanyavictoria.neighborly.Materials.MaterialsItem;
+import technogirl.maanyavictoria.neighborly.Money.MoneyItem;
+import technogirl.maanyavictoria.neighborly.Time.TimeItem;
+
 public class User {
     String name, email, phone_number, community;
     Boolean head, last_minute;
+    MaterialsItem materialsItem;
+    MoneyItem moneyItem;
+    TimeItem timeItem;
 
     public User() {
     }
@@ -69,4 +78,28 @@ public class User {
     public void setLast_minute(Boolean last_minute) {
         this.last_minute = last_minute;
     }
+    public MaterialsItem getMaterialsItem() {
+        return materialsItem;
+    }
+
+    public void setMaterialsItem(MaterialsItem materialsItem) {
+        this.materialsItem = materialsItem;
+    }
+
+    public MoneyItem getMoneyItem() {
+        return moneyItem;
+    }
+
+    public void setMoneyItem(MoneyItem moneyItem) {
+        this.moneyItem = moneyItem;
+    }
+
+    public TimeItem getTimeItem() {
+        return timeItem;
+    }
+
+    public void setTimeItem(TimeItem timeItem) {
+        this.timeItem = timeItem;
+    }
+
 }
