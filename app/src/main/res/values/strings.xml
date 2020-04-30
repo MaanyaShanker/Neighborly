@@ -16,6 +16,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="join_a_community">Join a Community</string>
+    <string name="code">Code</string>
+    <string name="join_community">Join Community</string>
+    <string name="create_a_community">Create a Community</string>
+    <string name="create_a_code">Create a code</string>
+    <string name="code_reminder">(Please only use characters, numbers, dashes, or underscores!)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
