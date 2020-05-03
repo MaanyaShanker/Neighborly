@@ -23,7 +23,7 @@
         android:shadowColor="#000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="10"/>
+        android:shadowRadius="20"/>
 
     <!--<TextView-->
         <!--android:id="@+id/login_header"-->
