@@ -51,7 +51,6 @@ public class JoinCommunityActivity extends AppCompatActivity {
                         if (dataSnapshot.getValue() != null) {
                             try {
                                 final User temp_user;
-                                Community community;
                                 Log.i("TAG", "" + dataSnapshot.getValue()); // your name values you will get here
                                 temp_user = dataSnapshot.getValue(User.class);
                                 Log.i("TAG", temp_user.getName());
