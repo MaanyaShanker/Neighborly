@@ -8,4 +8,5 @@
     <color name="pale_blue">#D6DFFF</color>
     <color name="white">#FFF</color>
     <color name="background">#FFF</color>
+    <color name="gray">#AAAAAA</color>
 </resources>

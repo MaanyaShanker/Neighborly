@@ -9,6 +9,10 @@
     android:background="@color/pale_blue">
 
     <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <include
         layout="@layout/content_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,14 +21,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/my_toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="?attr/colorPrimary"-->
+        <!--android:elevation="4dp"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"/>-->
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="25dp"
         app:srcCompat="@drawable/plus"
+        app:fab_labelStyle="@style/custom_fab"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:fabSize="mini"-->
+            <!--app:fab_colorNormal="@color/dark_blue"-->
+            <!--app:fab_colorPressed="@color/dark_blue"-->
+            <!--app:fab_icon="@drawable/plus"-->
+            <!--android:id="@+id/addMaterial"-->
+            <!--app:fab_title="Add Material Request"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/main_button"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"/>-->
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:fabSize="mini"-->
+            <!--app:fab_colorNormal="@color/dark_blue"-->
+            <!--app:fab_colorPressed="@color/dark_blue"-->
+            <!--app:fab_icon="@drawable/plus"-->
+            <!--android:id="@+id/addMoney"-->
+            <!--app:fab_title="Add Money Request"/>-->
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:fabSize="mini"-->
+            <!--app:fab_colorNormal="@color/dark_blue"-->
+            <!--app:fab_colorPressed="@color/dark_blue"-->
+            <!--app:fab_icon="@drawable/plus"-->
+            <!--android:id="@+id/addTime"-->
+            <!--app:fab_title="Add Time Request"/>-->
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -32,10 +81,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/dark_blue"
+        app:itemTextAppearanceInactive="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
